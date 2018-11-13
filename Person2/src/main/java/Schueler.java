@@ -4,6 +4,10 @@ public class Schueler extends Person {
     private String klasse;
     private int katalogNr;
 
+    public Schueler(){
+        super();
+    }
+
     public Schueler(String vorname, String nachname, String schule, String klasse, int katalogNr) {
         super(vorname, nachname);
 
@@ -14,18 +18,12 @@ public class Schueler extends Person {
 
     @Override
     public String toString(){
-        StringBuilder sb = new StringBuilder(super.toString());
+        String tmp = super.toString();
 
-        sb.append("\n");
-        sb.append("Schule: ");
-        sb.append(schule);
-        sb.append("\n");
-        sb.append("Klasse: ");
-        sb.append(klasse);
-        sb.append("\n");
-        sb.append("Katalognummer: ");
-        sb.append(katalogNr);
+        tmp += "\nSchule: " + schule;
+        tmp += "\nKlasse:" + klasse;
+        tmp += "\nKatalognummer: " + katalogNr;
 
-        return sb.toString();
+        return tmp;
     }
 }

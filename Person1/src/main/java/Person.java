@@ -1,18 +1,17 @@
-class Person{
+public class Person {
 
     private String vorname, nachname;
 
-
-    public Person(){
+    public Person() {
     }
 
-    public Person(String vorname, String nachname){
+    public Person(String vorname, String nachname) {
         this.vorname = vorname;
         this.nachname = nachname;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return vorname + " " + nachname;
     }
 }

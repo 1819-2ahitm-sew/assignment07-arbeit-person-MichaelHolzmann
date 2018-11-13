@@ -9,7 +9,7 @@ public class Main {
 
         Person[] personenListe = new Person[1000];
         int personenAnzahl = 0;
-        String auswahl;
+        int auswahl;
 
         do {
             System.out.println();
@@ -20,33 +20,36 @@ public class Main {
             System.out.println("5 - Ausgabe aller Studenten am Bildschirm");
             System.out.println("6 - Ende");
 
-            auswahl = sc.nextLine();
+            auswahl = sc.nextInt();
+
+            // https://stackoverflow.com/questions/14452613/issues-with-nextline
+            sc.nextLine();
 
             switch (auswahl) {
-                case "1":
+                case 1:
                     personenListe[personenAnzahl] = readSchueler();
                     personenAnzahl++;
                     break;
-                case "2":
+                case 2:
                     personenListe[personenAnzahl] = readStudent();
                     personenAnzahl++;
                     break;
-                case "3":
+                case 3:
                     printPersonen(personenListe, personenAnzahl);
                     break;
-                case "4":
+                case 4:
                     printSchueler(personenListe, personenAnzahl);
                     break;
-                case "5":
+                case 5:
                     printStudenten(personenListe, personenAnzahl);
                     break;
-                case "6":
+                case 6:
                     break;
                 default:
                     System.out.println("Ungültige Eingabe!");
             }
 
-        } while (!auswahl.equals("6"));
+        } while (auswahl != 6);
     }
 
 
@@ -64,7 +67,8 @@ public class Main {
         String klasse = sc.nextLine();
 
         System.out.print("Katalognummer: ");
-        int katalogNr = Integer.valueOf(sc.nextLine());
+        int katalogNr = sc.nextInt();
+        sc.nextLine();
 
         return new Schueler(vorname, nachname, schule, klasse, katalogNr);
     }
@@ -80,7 +84,8 @@ public class Main {
         String universitaet = sc.nextLine();
 
         System.out.print("Katalognummer: ");
-        int matrikelNr = Integer.valueOf(sc.nextLine());
+        int matrikelNr = sc.nextInt();
+        sc.nextLine();
 
         System.out.print("Studienfach: ");
         String studienfach = sc.nextLine();

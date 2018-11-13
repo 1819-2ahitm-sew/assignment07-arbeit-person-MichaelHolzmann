@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         Arbeitnehmer[] liste = new Arbeitnehmer[1000];
         int anzahl = 0;
-        String auswahl;
+        int auswahl;
 
         do {
             System.out.println();
@@ -16,27 +16,28 @@ public class Main {
             System.out.println("2 - Eingabe eines Angestellten");
             System.out.println("3 - Ausgabe der gesamten Liste");
             System.out.println("4 - Programmende");
-            auswahl = scanner.nextLine();
+            auswahl = scanner.nextInt();
+            scanner.nextLine();
 
             switch (auswahl){
-                case "1":
+                case 1:
                     liste[anzahl] = readArbeiter();
                     anzahl++;
                     break;
-                case "2":
+                case 2:
                     liste[anzahl] = readAngestellter();
                     anzahl++;
                     break;
-                case "3":
+                case 3:
                     printListe(liste, anzahl);
                     break;
-                case "4":
+                case 4:
                     break;
                 default:
                     System.out.println("Ungültige Eingabe");
             }
 
-        } while (!auswahl.equals("4"));
+        } while (auswahl != 4);
     }
 
     static Arbeiter readArbeiter(){
@@ -51,7 +52,8 @@ public class Main {
         arbeiter.setBeruf(beruf);
 
         System.out.print("Stundenlohn: ");
-        double stundenlohn = Double.valueOf(scanner.nextLine());
+        double stundenlohn = scanner.nextDouble();
+        scanner.nextLine();
         arbeiter.setStundenlohn(stundenlohn);
 
         return arbeiter;
@@ -69,7 +71,8 @@ public class Main {
         angestellter.setBeruf(beruf);
 
         System.out.print("Gehalt: ");
-        double gehalt = Double.valueOf(scanner.nextLine());
+        double gehalt = scanner.nextDouble();
+        scanner.nextLine();
         angestellter.setGehalt(gehalt);
 
         return angestellter;

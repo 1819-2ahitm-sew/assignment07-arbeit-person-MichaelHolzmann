@@ -8,7 +8,7 @@ public class main {
         Person[] bewohner = readBewohner();
 
         for (int i = 0; i < bewohner.length; i++) {
-            System.out.println(bewohner[i].toString());
+            System.out.println(bewohner[i]);
         }
     }
 
